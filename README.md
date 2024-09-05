@@ -1,24 +1,48 @@
-# README
+# Redaction Service   
+This is a simple Ruby on Rails application that provides a web service for redacting certain words from arbitrary text. The application has two main endpoints:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### GET /redact:   
+- Returns the string "Redaction Service".   
 
-Things you may want to cover:
+#### POST /redact: 
+- Accepts a text body and returns the same text with specific words replaced by "REDACTED".
 
-* Ruby version
+##  Features
+- **Redact words:** Automatically replaces any occurrences of the words Dog, Cat, Snake, Dolphin, and Mammal (case-insensitive) with "REDACTED".
+- **Configurable Port:** The server can be started on a custom port.
+- **POST request logging:** All POST requests are logged with a timestamp and the original text before redaction.
 
-* System dependencies
+## Setup
+### Prerequisites
+- Ruby (3.0.0)
+- Rails (7.1.4)
+- Bundler
 
-* Configuration
+## Installation
+- **Clone this repository:**  `git clone https://github.com/shimroz1992/hha_assestment.git`   
+- **Install the required gems:** `bundle install`   
+- **Running the Application:** `rails s`    
+To run the application on a custom port, such as 8080, run:
 
-* Database creation
+`rails server -p 8080` 
 
-* Database initialization
+The application will be available at http://localhost:8080/redact.    
 
-* How to run the test suite
+## Testing the Endpoints      
+### Example POST Request     
+#### Request:
+`POST /redact
+Body: "A dog, a monkey or a dolphin are all mammals. A snake, however, is not a mammal."`
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Response:
 
-* ...
+`"A REDACTED, a monkey or a REDACTED are all mammals. A REDACTED, however, is not a REDACTED."
+`    
+#
+_For any questions or suggestions, feel free to reach out to us at_ **[shimrozahemed.ngp@gmail.com ]**
+
+**Happy Coding! 🚀**
+
+
+
